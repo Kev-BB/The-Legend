@@ -1,6 +1,8 @@
 export default function TopSection({ submitted }) {
-  const classCondition =
-    document.getElementsByClassName("name-input").length === 0;
+  let classCondition = false;
+  if (typeof document !== 'undefined') {
+    classCondition = document.getElementsByClassName("name-input").length === 0;
+  }
   return (
     <div className="top-section">
       <h1 className={submitted && !classCondition ? "second-fade-in" : null}>
@@ -21,3 +23,5 @@ export default function TopSection({ submitted }) {
     </div>
   );
 }
+
+
